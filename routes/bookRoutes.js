@@ -1,15 +1,6 @@
 const express = require('express');
-const mysql = require('mysql');
 
 const bookRouter = express.Router();
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'PSLibrary',
-  insecureAuth: true,
-});
 
 function router(nav) {
   const books = [
@@ -41,14 +32,10 @@ function router(nav) {
 
   bookRouter.route('/')
     .get((req, res) => {
-      connection.query('select * from books', (err, result) => {
-        if (err) throw err;
-
-        res.render('books', {
-          nav,
-          title: 'Library',
-          books: result,
-        });
+      res.render('books', {
+        nav,
+        title: 'Library',
+        books,
       });
     });
 

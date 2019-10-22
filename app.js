@@ -12,25 +12,9 @@ const morgan = require('morgan');
 
 const path = require('path');
 
-const mysql = require('mysql');
-
 const app = express();
 
 const port = process.env.PORT || 3000;
-
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'PSLibrary',
-  insecureAuth: true,
-});
-
-connection.connect((err) => {
-  if (err) throw err;
-  debug('Connected!');
-});
 
 const nav = [
   { link: '/books', title: 'Books' },
