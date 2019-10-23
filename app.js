@@ -23,6 +23,7 @@ const nav = [
 
 // helps us chain all of our routes
 const bookRouter = require('./routes/bookRoutes')(nav);
+const adminRouter = require('./routes/adminRoutes')(nav);
 
 // use "combined" for much info and "tiny" for less info
 app.use(morgan('tiny'));
@@ -38,6 +39,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.use('/books', bookRouter);
+app.use('/admin', adminRouter);
 
 // render our view in this case pug
 app.get('/', (req, res) => {

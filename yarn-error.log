@@ -1,0 +1,73 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.19.0/libexec/bin/yarn.js start
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Postgres.app/Contents/Versions/latest/bin
+
+Yarn version: 
+  1.19.0
+
+Node version: 
+  10.16.3
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/mcnamora/Desktop/ReSTwebMongo/package.json: Unexpected token D in JSON at position 183
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.19.0/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.19.0/libexec/lib/cli.js:304:30)
+      at /usr/local/Cellar/yarn/1.19.0/libexec/lib/cli.js:315:13
+
+npm manifest: 
+  {
+  	"name": "ReSTweb",
+  	"version": "1.0.0",
+  	"description": "",
+  	"main": "index.js",
+  	"scripts": {
+  		"test": "echo \"Error: no test specified\" && exit 1",
+  		"start": "DEBUG=app, app:"DEBUG=app:* nodemon app.js" nodemon app.js",
+  		"lint": "eslint app.js"
+  	},
+  	"keywords": [],
+  	"author": "",
+  	"license": "ISC",
+  	"dependencies": {
+  		"bootstrap": "^4.3.1",
+  		"chalk": "^2.4.2",
+  		"debug": "^4.1.1",
+  		"ejs": "^2.7.1",
+  		"express": "^4.17.1",
+  		"jquery": "^3.4.1",
+  		"mongodb": "^3.3.3",
+  		"morgan": "^1.9.1",
+  		"mssql": "^5.1.0",
+  		"mysql": "^2.17.1",
+  		"nodemon": "^1.19.3"
+  	},
+  	"devDependencies": {
+  		"eslint": "^6.5.1",
+  		"eslint-config-airbnb-base": "^14.0.0",
+  		"eslint-plugin-import": "^2.18.2"
+  	},
+  	"nodemonConfig": {
+  		"restartable": "rs",
+  		"ignore": [
+  			"node_modules/**/node_modules"
+  		],
+  		"delay": "2500",
+  		"env": {
+  			"NODE_ENV": "development",
+  			"PORT": 4000
+  		}
+  	}
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
