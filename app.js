@@ -12,6 +12,14 @@ const morgan = require('morgan');
 
 const path = require('path');
 
+const bodyParser = require('body-parser');
+
+// deals with maintaining our user objects in persition, and also dropping and pulling out
+// from cookie
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+
+
 const app = express();
 
 const port = process.env.PORT || 3000;
@@ -24,10 +32,18 @@ const nav = [
 // helps us chain all of our routes
 const bookRouter = require('./routes/bookRoutes')(nav);
 const adminRouter = require('./routes/adminRoutes')(nav);
+const authRouter = require('./routes/authRoutes')(nav);
 
 // use "combined" for much info and "tiny" for less info
 app.use(morgan('tiny'));
 
+// helps us to pull out posts
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(session({ secret: 'library', resave: 'option', saveUninitialized: 'option' }));
+
+require('./src/config/passport')(app);
 // telling express to serve static files
 app.use(express.static(path.join(__dirname, '/public')));
 app.use('/css', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/css')));
@@ -40,6 +56,7 @@ app.set('view engine', 'ejs');
 
 app.use('/books', bookRouter);
 app.use('/admin', adminRouter);
+app.use('/auth', authRouter);
 
 // render our view in this case pug
 app.get('/', (req, res) => {

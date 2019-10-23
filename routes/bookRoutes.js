@@ -16,7 +16,7 @@ function router(nav) {
           client = await MongoClient.connect(url, { useUnifiedTopology: true });
           debug('connected successfully to server');
           const db = client.db(dbName);
-          const col = await db.collection('books');
+          const col = db.collection('books');
           const books = await col.find().toArray();
           res.render('books',
             {
