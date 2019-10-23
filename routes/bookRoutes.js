@@ -56,8 +56,6 @@ function router(nav) {
           debug(err.stack);
         }
       }());
-
-
     });
 
   return bookRouter;
