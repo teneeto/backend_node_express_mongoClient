@@ -44,6 +44,14 @@ function router(nav) {
       failureRedirect: '/',
     }));
   authRouter.route('/profile')
+    // authorizing users, what url they can access depending on if logged in or not
+    .all((req, res, next) => {
+      if (req.user) {
+        next();
+      } else {
+        res.redirect('/');
+      }
+    })
     .get((req, res) => {
       res.json(req.user);
     });

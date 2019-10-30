@@ -5,7 +5,7 @@ const debug = require('debug')('app:local.strategy');
 
 module.exports = function localStrategy() {
   passport.use(new Strategy(
-    { 
+    {
       usernameField: 'username',
       passwordField: 'password',
 
