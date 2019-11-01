@@ -10,24 +10,28 @@ function router() {
       title: 'War and Peace',
       genre: 'historical Fiction',
       author: 'Lev Nikolayev',
+      bookId: 656,
       read: false,
     },
     {
       title: 'Les Misérables',
       genre: 'historical Fiction',
       author: 'Victor Hugo',
+      bookId: 24280,
       read: false,
     },
     {
       title: 'Things Fall Apart',
       genre: 'Fiction',
       author: 'Chinwa Achebe',
+      bookId: 50,
       read: false,
     },
     {
       title: 'Homlet',
       genre: 'Novel',
       author: 'Williams Shakespere',
+      bookId: 80,
       read: false,
     },
   ];
